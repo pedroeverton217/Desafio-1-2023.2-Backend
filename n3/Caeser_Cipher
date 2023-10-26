@@ -1,0 +1,19 @@
+function rot13(str) {
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const shift = 13;
+  
+  return str
+    .split('')
+    .map(char => {
+      if (alphabet.indexOf(char) === -1) {
+        // If the character is not in the alphabet, don't change it
+        return char;
+      }
+
+      const index = (alphabet.indexOf(char) + shift) % 26;
+      return alphabet[index];
+    })
+    .join('');
+}
+
+rot13("SERR PBQR PNZC");
